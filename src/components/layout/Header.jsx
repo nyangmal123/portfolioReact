@@ -47,18 +47,31 @@ const Title = styled.div`
     font-weight: 700;
     font-style: normal;
   }
-  font-family: 'PyeongChangPeace-Bold';
+  @font-face {
+    font-family: 'iceJaram-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceJaram-Rg.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  // font-family: 'PyeongChangPeace-Bold';
+  font-family: 'iceJaram-Rg';
   color: #97a9bb;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 700;
 `;
 const Nav = styled.nav`
   display: flex;
-  height: 5rem;
-  .li {
-    display: none;
-  }
+  width: 50rem;
+  justify-content: space-around;
+  list-style-type: none;
+
   &:hover {
     cursor: pointer;
   }
+
+  font-family: 'iceJaram-Rg';
+  font-size: 30px;
+  color: #97a9bb;
 `;
