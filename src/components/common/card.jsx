@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
+import { CgBrowser } from 'react-icons/cg';
+import { BsGithub } from 'react-icons/bs';
 
 function Card() {
   const [data, setData] = useState([]);
@@ -14,21 +16,31 @@ function Card() {
     <>
       {data.map((item) => (
         <Wrapper>
-          <Title>{item.name}</Title>
+          <Title>
+            <div>{item.name}</div>
+            <div>
+              <a href={item.gitHub} target='_blank' rel='noopenner noreferrer'>
+                <BsGithub size='20px' color='#8a98a7' />
+              </a>
+              <a href={item.site} target='_blank' rel='noopenner noreferrer'>
+                <CgBrowser size='20px' color='#8a98a7' />
+              </a>
+            </div>
+          </Title>
           <Content>
             <ul>
               <li>{item.date}</li>
+              <br />
               <li>{item.info}</li>
+              <br />
               <li>
                 {item.experience.split('.').map((line) => (
                   <>
-                    {line}.
+                    {line}
                     <br />
                   </>
                 ))}
               </li>
-              <li>{item.gitHub}</li>
-              <li>{item.site}</li>
             </ul>
           </Content>
         </Wrapper>
@@ -43,16 +55,23 @@ const Wrapper = styled.div`
   background-color: #12212f;
   width: 450px;
   height: 300px;
+
+  border-radius: 20px;
+
   margin: 0 auto;
+  padding: 20px;
 `;
 const Title = styled.div`
   font-family: 'iceJaram-Rg';
-  color: #4b6986;
+  color: #8a98a7;
   font-size: 50px;
   font-weight: bold;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 const Content = styled.div`
   font-family: 'Arita-dotum-Medium';
   color: #4b6986;
-  //padding: 10px;
 `;

@@ -16,7 +16,5 @@ function Layout({ children }) {
 export default Layout;
 
 const Back = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: #020a11;
+  background-color: #020a11;
 `;

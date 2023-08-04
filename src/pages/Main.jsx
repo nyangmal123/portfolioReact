@@ -6,30 +6,40 @@ import Card from '../components/common/card';
 function Main() {
   return (
     <Layout>
-      <Wrapper>
-        <StackImg />
-        <Content name next>
-          남마리나
-        </Content>
-        <Content>
-          눈썰미 있게 잘 배웁니다! 잘 배워서 빠르게 성장하겠습니다. <br />
-          개발 하다가 막히면 일단 자리에서 일어납니다. <br />
-          산책이든 음료를 타든 뭔가를 하다보면 자연스레 환기가 되면서 해결책이
-          떠오르더라고요. <br />
-        </Content>
-      </Wrapper>
-      <CardWrapper>
-        <Card />
-      </CardWrapper>
+      <Wrap>
+        <IntroWrapper>
+          <StackImg />
+          <Content name next>
+            남마리나
+          </Content>
+          <Content>
+            눈썰미 있게 잘 배웁니다! 잘 배워서 빠르게 성장하겠습니다. <br />
+            개발 하다가 막히면 일단 자리에서 일어납니다. <br />
+            산책이든 음료를 타든 뭔가를 하다보면 자연스레 환기가 되면서 해결책이
+            떠오르더라고요. <br />
+          </Content>
+        </IntroWrapper>
+        <CardWrapper>
+          <Card />
+        </CardWrapper>
+      </Wrap>
     </Layout>
   );
 }
 
 export default Main;
 
-const Wrapper = styled.div`
+const Wrap = styled.div`
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  //padding-bottom: 100px;
+`;
+const IntroWrapper = styled.div`
   background-color: #15314e;
-  width: 800px;
+  border-radius: 20px;
+  opacity: 20;
+  width: 400px;
   height: 400px;
   margin: 0 auto;
   padding: 20px;
