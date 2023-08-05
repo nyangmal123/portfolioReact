@@ -53,8 +53,8 @@ export default Card;
 
 const Wrapper = styled.div`
   background-color: #12212f;
-  width: 450px;
-  height: 300px;
+  width: 30vw;
+  height: 40vh;
 
   border-radius: 20px;
 
@@ -64,7 +64,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-family: 'iceJaram-Rg';
   color: #8a98a7;
-  font-size: 50px;
+  font-size: 2.5rem;
   font-weight: bold;
 
   display: flex;

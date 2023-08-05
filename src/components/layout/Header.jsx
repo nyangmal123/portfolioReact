@@ -32,12 +32,13 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  width: 45%;
 `;
 
 const Home = styled.img`
   display: flex;
   width: 120px;
+  cursor: pointer;
 `;
 const Title = styled.div`
   @font-face {
@@ -58,12 +59,14 @@ const Title = styled.div`
   font-family: 'iceJaram-Rg';
   color: #97a9bb;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
+
+  cursor: pointer;
 `;
 const Nav = styled.nav`
   display: flex;
-  width: 50rem;
+  width: 50%;
   justify-content: space-around;
   list-style-type: none;
 
