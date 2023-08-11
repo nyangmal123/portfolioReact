@@ -30,7 +30,6 @@ const Head = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 45%;
 `;
