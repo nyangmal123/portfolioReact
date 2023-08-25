@@ -8,14 +8,14 @@ function Header() {
   return (
     <Head>
       <Wrapper onClick={() => navigate('/')}>
-        <Home src={require('../../assets/jiji.png')} />
-        <Title>남마리나 포트폴리오</Title>
+        <Home src={require('../../assets/cat.png')} alt='home button' />
+        <Title>portfolio</Title>
       </Wrapper>
 
       <Nav>
-        <li>자기소개</li>
-        <li>프로젝트 리스트</li>
-        <li>메뉴3</li>
+        <li>home</li>
+        <li>introduce</li>
+        <li>project list</li>
       </Nav>
     </Head>
   );
@@ -38,6 +38,8 @@ const Home = styled.img`
   display: flex;
   width: 120px;
   cursor: pointer;
+  padding: 1rem;
+  width: 8rem;
 `;
 const Title = styled.div`
   @font-face {

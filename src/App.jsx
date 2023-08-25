@@ -1,12 +1,13 @@
-import { Route, Routes } from 'react-router-dom';
-
-import Main from '../src/pages/Main';
+import Router from './routes';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' element={<Main />} />
-    </Routes>
+    <>
+      <RecoilRoot>
+        <Router />
+      </RecoilRoot>
+    </>
   );
 }
 
