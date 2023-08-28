@@ -6,7 +6,8 @@
     "info": "사회 초년생을 비롯한 모든 사람들이 예적금 상품을 선택하여 비교해 볼 수 있고, 본인의 자산관리 꿀팁을 공유할 수 있는 사이트입니다.",
     "experience": "프론트엔드 개발자 5명과 디자이너가 한 팀으로 만든 프로젝트입니다. React Hook, Styled-Component를 사용하여 만들었고, Firebase로 서버 구축, Vercel로 배포하였습니다. 게시판을 통한 CRUD 구현과 금융감독원 API를 사용한 비동기적 통신을 구축했습니다. ",
     "gitHub": "https://github.com/Jocooh/open-an-account",
-    "site": "https://tipper-seven.vercel.app/"
+    "site": "https://tipper-seven.vercel.app/",
+    "image": "/Users/nammalina/Desktop/portfolioreact/src/assets/tipperimg.jpg"
   },
   {
     "id": 2,
@@ -14,8 +15,9 @@
     "date": "2023.08",
     "info": "앞서 진행했던 '팁퍼' 팀 프로젝트를 디벨롭했습니다.",
     "experience": "Recoil로 전역상태관리 경험, WebVital로 성능 최적화를 적용해보았습니다.",
-    "gitHub": "",
-    "site": ""
+    "gitHub": "https://github.com/nyangmal123/tipper.git",
+    "site": "https://tipper-liard.vercel.app/",
+    "image": "/Users/nammalina/Desktop/portfolioreact/src/assets/tipperimg.jpg"
   },
   {
     "id": 3,
@@ -23,7 +25,8 @@
     "info": "제 포트폴리오를 직접 만들어보았습니다.",
     "date": "2023.08",
     "experience": "React, mockData로 제 프로젝트 정보를 저장하고 불러왔습니다. infiniteScroll, topButton, 그 외에도 Style-Component로 animation 효과 등을 적용했습니다.",
-    "gitHub": "",
-    "site": ""
+    "gitHub": "https://github.com/nyangmal123/portfolioReact.git",
+    "site": "https://portfolio-react-five-gamma.vercel.app/",
+    "image": ""
   }
 ]

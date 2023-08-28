@@ -1,17 +1,17 @@
-import { styled } from '@tanstack/react-query-devtools/build/lib/utils';
+import { styled } from 'styled-components';
 import React from 'react';
-import Scroll from '../components/common/Scroll';
+import ScrollTop from '../components/common/ScrollTop';
 
 function Home() {
   return (
     <>
-      <Wrapper src={require('../assets/workingcat.avif')}>
+      <Wrapper>
         <Name>
           안녕하세요, <br />
           프론트엔드 개발자 <br />
           남마리나입니다.
         </Name>
-        <Scroll />
+        <ScrollTop />
       </Wrapper>
     </>
   );
@@ -20,10 +20,20 @@ function Home() {
 export default Home;
 
 const Wrapper = styled.div`
-  size: 100%;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  background: url(${require('../assets/bluecat.png')});
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(183, 198, 247, 0.8));
 `;
 const Name = styled.div`
   font-family: 'iceJaram-Rg';
-  font-size: 15rem;
-  color: #97a9bb;
+  font-size: 5rem;
+  color: #5e4c32;
 `;
