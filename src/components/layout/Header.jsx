@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { MdOutlineDarkMode } from 'react-icons/md';
+import { GoSun } from 'react-icons/go';
+import { useRecoilState } from 'recoil';
+import { darkmode } from '../../atom';
 
 function Header() {
   const navigate = useNavigate();
 
+  const homeRef = useRef(null);
+  const introduceRef = useRef(null);
+  const projectRef = useRef(null);
+
+  const onHomeClick = () => {
+    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  const onIntroduceClick = () => {
+    introduceRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  const onProjectClick = () => {
+    projectRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const [isDark, setIsDark] = useRecoilState(darkmode);
+  const onDarkMode = () => {
+    setIsDark(true);
+  };
   return (
     <Head>
       <Wrapper onClick={() => navigate('/')}>
@@ -13,9 +35,28 @@ function Header() {
       </Wrapper>
 
       <Nav>
-        <li>home</li>
-        <li>introduce</li>
-        <li>project list</li>
+        {isDark ? (
+          <GoSun
+            onClick={onDarkMode}
+            size='2rem'
+            style={{ color: '#97a9bb' }}
+          />
+        ) : (
+          <MdOutlineDarkMode
+            onClick={onDarkMode}
+            size='2rem'
+            style={{ color: '#97a9bb' }}
+          />
+        )}
+        <li onClick={onHomeClick}>
+          <a href='#home'>home</a>
+        </li>
+        <li onClick={onIntroduceClick}>
+          <a href='#introduce'>introduce</a>
+        </li>
+        <li onClick={onProjectClick}>
+          <a href='#project'>project list</a>
+        </li>
       </Nav>
     </Head>
   );
@@ -43,20 +84,12 @@ const Home = styled.img`
 `;
 const Title = styled.div`
   @font-face {
-    font-family: 'PyeongChangPeace-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2')
-      format('woff2');
-    font-weight: 700;
-    font-style: normal;
-  }
-  @font-face {
     font-family: 'iceJaram-Rg';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceJaram-Rg.woff2')
       format('woff2');
     font-weight: normal;
     font-style: normal;
   }
-  // font-family: 'PyeongChangPeace-Bold';
   font-family: 'iceJaram-Rg';
   color: #97a9bb;
   font-weight: 400;
@@ -67,7 +100,7 @@ const Title = styled.div`
 `;
 const Nav = styled.nav`
   display: flex;
-  width: 50%;
+  width: 35%;
   justify-content: space-around;
   list-style-type: none;
 
@@ -76,6 +109,11 @@ const Nav = styled.nav`
   }
 
   font-family: 'iceJaram-Rg';
-  font-size: 30px;
-  color: #97a9bb;
+  font-size: 2rem;
+
+  .a {
+    text-decoration-line: none;
+    color: #97a9bb;
+    behavior: 'smooth';
+  }
 `;

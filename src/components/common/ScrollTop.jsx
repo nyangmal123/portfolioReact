@@ -2,7 +2,6 @@ import { React, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { scrollTop } from '../../atom';
 import { BiArrowToTop } from 'react-icons/bi';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 function ScrollTop() {
   const [topBtn, setTopBtn] = useRecoilState(scrollTop);
@@ -20,7 +19,13 @@ function ScrollTop() {
       onClick={handleTop}
       size='5rem'
       float='right'
-      style={{ position: 'fixed', right: 0, bottom: 0, cursor: 'pointer' }}
+      style={{
+        position: 'fixed',
+        right: 0,
+        bottom: 0,
+        cursor: 'pointer',
+        zIndex: '99999',
+      }}
     />
   );
 }
