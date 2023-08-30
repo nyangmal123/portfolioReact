@@ -1,14 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineDarkMode } from 'react-icons/md';
 import { GoSun } from 'react-icons/go';
 import { useRecoilState } from 'recoil';
-import { darkmode } from '../../atom';
+import { darkmode, scroll } from '../../atom';
 
 function Header() {
-  const navigate = useNavigate();
-
   const homeRef = useRef(null);
   const introduceRef = useRef(null);
   const projectRef = useRef(null);
@@ -25,11 +23,26 @@ function Header() {
 
   const [isDark, setIsDark] = useRecoilState(darkmode);
   const onDarkMode = () => {
-    setIsDark(true);
+    setIsDark(!isDark);
   };
+
+  const [isScroll, setIsScroll] = useRecoilState(scroll);
+  const onScroll = () => {
+    if (window.scrollY > 30) {
+      setIsScroll(true);
+    } else {
+      setIsScroll(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll); //clean up
+    };
+  }, []);
   return (
     <Head>
-      <Wrapper onClick={() => navigate('/')}>
+      <Wrapper id='top'>
         <Home src={require('../../assets/cat.png')} alt='home button' />
         <Title>portfolio</Title>
       </Wrapper>
@@ -68,11 +81,16 @@ const Head = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100vw;
+  position: fixed;
+  z-index: 9999;
+
+  visibility: ${(isScroll) => (isScroll ? 'visible' : 'hidden')};
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 45%;
 `;
 
 const Home = styled.img`
@@ -103,6 +121,7 @@ const Nav = styled.nav`
   width: 35%;
   justify-content: space-around;
   list-style-type: none;
+  color: #97a9bb;
 
   &:hover {
     cursor: pointer;
@@ -111,9 +130,12 @@ const Nav = styled.nav`
   font-family: 'iceJaram-Rg';
   font-size: 2rem;
 
-  .a {
-    text-decoration-line: none;
-    color: #97a9bb;
-    behavior: 'smooth';
+  a:link {
+    color: red;
+    text-decoration: none;
+  }
+  a:visited {
+    color: black;
+    text-decoration: none;
   }
 `;

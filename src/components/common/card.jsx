@@ -54,12 +54,12 @@ export default Card;
 const Wrapper = styled.div`
   background-color: #b3c6e7;
   width: 30vw;
-  height: 40vh;
+  min-height: 50vh;
 
   border-radius: 20px;
 
   margin: 0 auto;
-  padding: 20px;
+  padding: 2rem;
 `;
 const Title = styled.div`
   @font-face {

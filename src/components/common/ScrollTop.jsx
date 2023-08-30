@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { scrollTop } from '../../atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { darkmode, scrollTop } from '../../atom';
 import { BiArrowToTop } from 'react-icons/bi';
 
 function ScrollTop() {
@@ -10,6 +10,8 @@ function ScrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const isDark = useRecoilValue(darkmode);
+
   useEffect(() => {
     window.scrollY > 200 ? setTopBtn(true) : setTopBtn(false);
   }, [setTopBtn]);
@@ -17,6 +19,7 @@ function ScrollTop() {
   return (
     <BiArrowToTop
       onClick={handleTop}
+      color={isDark ? 'white' : '5e4c32'}
       size='5rem'
       float='right'
       style={{
@@ -25,6 +28,7 @@ function ScrollTop() {
         bottom: 0,
         cursor: 'pointer',
         zIndex: '99999',
+        visibility: `${(topBtn) => (topBtn ? 'visible' : 'hidden')}`,
       }}
     />
   );

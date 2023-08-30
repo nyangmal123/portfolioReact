@@ -10,11 +10,7 @@ export const darkmode = atom({
   default: false,
 });
 
-// export const scrollRef = atom({
-//   key: 'scrollRef',
-//   default: [
-//     { idx: 0, name: 'home' },
-//     { idx: 1, name: 'introduce' },
-//     { idx: 2, name: 'project' },
-//   ],
-// });
+export const scroll = atom({
+  key: 'scroll',
+  default: false,
+});
