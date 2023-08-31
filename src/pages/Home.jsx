@@ -6,6 +6,8 @@ import Card from '../components/common/Card';
 
 import { BsGithub } from 'react-icons/bs';
 import { CgBrowser } from 'react-icons/cg';
+import { useRecoilValue } from 'recoil';
+import { darkmode } from '../atom';
 
 function Home() {
   return (
@@ -22,8 +24,33 @@ function Home() {
       <IntroWrapper id='introduce'>
         <IntroTitle>Introduce.</IntroTitle>
         <ContentWrapper>
-          <LogoWrapper></LogoWrapper>
-          <Content name next>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <StackLogo>
+              <img
+                src={require('../assets/react.png')}
+                alt='react'
+                style={{
+                  maxWidth: '2.7rem',
+                  objectFit: 'contain',
+                  borderRadius: '0.5rem',
+                }}
+              />
+              <img
+                src={require('../assets/recoil.png')}
+                alt='recoil'
+                style={{ maxWidth: '2.5rem', objectFit: 'contain' }}
+              />
+              <img
+                src={require('../assets/reactquery.png')}
+                alt='react-query'
+                style={{ maxWidth: '2.5rem', objectFit: 'contain' }}
+              />
+              <img
+                src={require('../assets/styledcomponent.png')}
+                alt='styled-component'
+                style={{ maxWidth: '2.5rem', objectFit: 'contain' }}
+              />
+            </StackLogo>
             <div
               style={{
                 display: 'flex',
@@ -49,7 +76,7 @@ function Home() {
                 <CgBrowser size='2.5rem' color='#5e4c32' />
               </a>
             </div>
-          </Content>
+          </div>
           <Content>
             안녕하세요, 프론트엔드 개발자 남마리나입니다. <br />
             논리적이고 깔끔한 코드를 작성하는 개발자가 되고 싶습니다. <br />
@@ -76,7 +103,7 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     url(${require('../assets/bluecat.png')});
   background-repeat: no-repeat;
   background-position: top center;
@@ -96,39 +123,53 @@ const IntroWrapper = styled.div`
 const IntroTitle = styled.div`
   font-family: 'iceJaram-Rg';
   font-size: 4rem;
-  color: #b3c6e7;
-`;
-const LogoWrapper = styled.div`
-  background-image: src= '../assets/milkyway.jpeg';
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 10rem;
-  color: #5e4c32;
+  color: ${() => {
+    const isDark = useRecoilValue(darkmode);
+    return isDark ? '#b3c6e7' : '#5e4c32';
+  }};
+  padding-bottom: 2rem;
 `;
 const ContentWrapper = styled.div`
   background-color: #b3c6e7;
   border-radius: 20px;
   padding: 3rem;
 `;
+const StackLogo = styled.div`
+  display: flex;
+  justify-content: space-around;
+  min-width: 40%;
+
+  @keyframes blink-effect {
+    50% {
+      opacity: 0.3;
+    }
+  }
+  animation-name: blink-effect 3s step-end infinite;
+`;
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #5e4c32;
+
   font-size: ${(props) => (props.name ? '4rem' : '2.5rem')};
   font-family: ${(props) =>
     props.name ? 'iceJaram-Rg' : 'Arita-dotum-Medium'};
+  line-height: 160%;
+
   margin-bottom: ${(props) => (props.next ? '1rem' : 0)};
 `;
 
 const ProjectWrapper = styled.div`
   padding: 2rem;
+  flex-wrap: wrap;
 `;
 const ProjectTitle = styled(IntroTitle)``;
+
 const CardWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
-  min-width: 18vw;
+  min-width: 90vw;
+  min-height: 70vh;
 `;

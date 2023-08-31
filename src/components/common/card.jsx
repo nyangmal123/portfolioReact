@@ -15,26 +15,40 @@ function Card() {
   return (
     <>
       {data.map((item) => (
-        <Wrapper>
+        <Wrapper key={data.id}>
           <Title>
             <div>{item.name}</div>
-            <div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                width: '5rem',
+              }}
+            >
               <a href={item.gitHub} target='_blank' rel='noopenner noreferrer'>
-                <BsGithub size='20px' color='#8a98a7' />
+                <BsGithub size='2rem' color='#5e4c32' />
               </a>
               <a href={item.site} target='_blank' rel='noopenner noreferrer'>
-                <CgBrowser size='20px' color='#8a98a7' />
+                <CgBrowser size='2rem' color='#5e4c32' />
               </a>
             </div>
           </Title>
           <Content>
             <ul>
-              <li>{item.date}</li>
-              <br />
-              <li>{item.info}</li>
+              <li>
+                {item.info} ({item.date})
+              </li>
               <br />
               <li>
-                {item.experience.split('.').map((line) => (
+                기술 스택: <br />
+                {item.stack}
+              </li>
+              <br />
+              <li>
+                기능 구현:
+                <br />
+                {item.feature.split(',').map((line) => (
                   <>
                     {line}
                     <br />
@@ -53,22 +67,13 @@ export default Card;
 
 const Wrapper = styled.div`
   background-color: #b3c6e7;
-  width: 30vw;
-  min-height: 50vh;
+  max-width: 30vw;
+  max-height: 66vh;
 
   border-radius: 20px;
-
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
 `;
 const Title = styled.div`
-  @font-face {
-    font-family: 'iceJaram-Rg';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceJaram-Rg.woff2')
-      format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
   font-family: 'iceJaram-Rg';
   color: #5e4c32;
   font-size: 2.5rem;
@@ -80,5 +85,30 @@ const Title = styled.div`
 `;
 const Content = styled.div`
   font-family: 'Arita-dotum-Medium';
+  font-size: 1.2rem;
   color: #5e4c32;
+
+  word-break: keep-all;
+  line-height: 160%;
+
+  padding-top: 1rem;
+  max-height: 25rem;
+  min-height: 20rem;
+  overflow: auto;
+
+  /* 스크롤바 설정*/
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* 스크롤바 막대 설정*/
+  ::-webkit-scrollbar-thumb {
+    background: #5e4c32;
+    border-radius: 25px;
+  }
+
+  /* 스크롤바 뒷 배경 설정*/
+  ::-webkit-scrollbar-track {
+    background-color: #b3c6e7;
+  }
 `;

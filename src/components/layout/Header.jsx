@@ -68,7 +68,7 @@ function Header() {
           <a href='#introduce'>introduce</a>
         </li>
         <li onClick={onProjectClick}>
-          <a href='#project'>project list</a>
+          <a href='#project'>project</a>
         </li>
       </Nav>
     </Head>
