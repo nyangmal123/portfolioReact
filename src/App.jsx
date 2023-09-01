@@ -1,12 +1,18 @@
-import { Route, Routes } from 'react-router-dom';
-
-import Main from '../src/pages/Main';
+import Router from './routes';
+import { RecoilRoot } from 'recoil';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <Routes>
-      <Route path='/' element={<Main />} />
-    </Routes>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
+          <Router />
+        </RecoilRoot>
+      </QueryClientProvider>
+    </>
   );
 }
 
