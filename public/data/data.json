@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "팁퍼(Tipper)",
+    "date": "2023.04",
+    "info": "예적금 상품을 최대 3개 선택하여 비교, 만기수령액 계산",
+    "stack": "React, Styled-Component, Firebase, Vercel",
+    "feature": "금융상품 선택 후 비교 결과 모달창에 만기수령액 계산기능, 상품 검색, 상품 북마크, 회원가입/로그인(유효성검사), 마이페이지, 게시판 CRUD",
+    "gitHub": "https://github.com/Jocooh/open-an-account",
+    "site": "https://tipper-seven.vercel.app/",
+    "image": "/Users/nammalina/Desktop/portfolioreact/src/assets/tipperimg.jpg"
+  },
+  {
+    "id": 2,
+    "name": "팁퍼(Tipper) 개정판",
+    "date": "2023.09.03",
+    "info": "팀 프로젝트 디벨롭",
+    "stack": "React, Recoil, Styled-Component, Firebase, Vercel",
+    "feature": "Recoil 전역상태관리, Lighthouse를 이용한 성능 최적화, 디버깅 - 상품비교 3개 선택항목 중 무작위 선택 해제해도 정상작동",
+    "gitHub": "https://github.com/nyangmal123/tipper.git",
+    "site": "https://tipper-liard.vercel.app/",
+    "image": "/Users/nammalina/Desktop/portfolioreact/src/assets/tipperimg.jpg"
+  },
+  {
+    "id": 3,
+    "name": "포트폴리오",
+    "date": "2023.08.31",
+    "info": "포트폴리오 제작",
+    "stack": "React, Recoil, React-query, Styled-Component, vercel",
+    "feature": "db.json 서버배포 후 비동기통신, 내비게이션 바 클릭시 해당부분 스크롤 이동, topButton, 다크모드, grid 형식 anmation 효과 적용",
+    "gitHub": "https://github.com/nyangmal123/portfolioReact.git",
+    "site": "https://portfolio-react-five-gamma.vercel.app/",
+    "image": ""
+  }
+]
