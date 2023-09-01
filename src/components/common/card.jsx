@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { CgBrowser } from 'react-icons/cg';
 import { BsGithub } from 'react-icons/bs';
+import { useQuery } from '@tanstack/react-query';
+import { fetchData } from '../../api';
 
 function Card() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3000/data/data.json')
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+  const { isLoading, isError, error, data } = useQuery(['projects'], fetchData);
+  if (isLoading) return <span>Loading...</span>;
+  if (isError) return <span>Error! {error.message}</span>;
 
   return (
     <>

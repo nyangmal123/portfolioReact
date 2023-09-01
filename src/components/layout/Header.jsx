@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 import { MdOutlineDarkMode } from 'react-icons/md';
 import { GoSun } from 'react-icons/go';
 import { useRecoilState } from 'recoil';
